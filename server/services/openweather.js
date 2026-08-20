@@ -25,8 +25,8 @@ async function fetchRawWeatherData({ city, lat, lon }) {
     let airPollutionUrl = '';
 
     if (lat && lon) {
-
       currentUrl = `${BASE_URL}/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+
       forecastUrl = `${BASE_URL}/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
       airPollutionUrl = `${BASE_URL}/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${apiKey}`;
     } else if (city) {
@@ -264,8 +264,6 @@ async function trySmartGeocoding(cityQuery, apiKey) {
   }
   return null;
 }
-
-
 
 module.exports = {
   fetchRawWeatherData
