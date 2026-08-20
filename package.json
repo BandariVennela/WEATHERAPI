@@ -1,0 +1,25 @@
+{
+  "name": "ai-weather-agent",
+  "version": "1.0.0",
+  "description": "Production-ready AI Weather Agent powered by OpenWeather API data and AI reasoning engine.",
+  "main": "server/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js"
+  },
+  "keywords": [
+    "weather",
+    "ai",
+    "openweather",
+    "agent",
+    "express"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  }
+}
