@@ -26,12 +26,12 @@ async function fetchRawWeatherData({ city, lat, lon }) {
 
     if (lat && lon) {
       currentUrl = `${BASE_URL}/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
-
       forecastUrl = `${BASE_URL}/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
       airPollutionUrl = `${BASE_URL}/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${apiKey}`;
     } else if (city) {
       const cleanCity = encodeURIComponent(city.trim());
       currentUrl = `${BASE_URL}/data/2.5/weather?q=${cleanCity}&units=metric&appid=${apiKey}`;
+
       forecastUrl = `${BASE_URL}/data/2.5/forecast?q=${cleanCity}&units=metric&appid=${apiKey}`;
     } else {
       throw new Error('Location query is required (city name or coordinates).');
