@@ -20,8 +20,8 @@ async function fetchRawWeatherData({ city, lat, lon }) {
   }
 
   try {
-
     let currentUrl = '';
+
     let forecastUrl = '';
     let airPollutionUrl = '';
 
