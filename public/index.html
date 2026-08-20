@@ -15,10 +15,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css">
 </head>
-
 <body>
   <div class="app-container">
-
     <!-- HEADER -->
     <header class="app-header">
       <div class="header-content">
@@ -34,7 +32,6 @@
             <p class="app-tagline">Understand the Weather. Plan Smarter.</p>
           </div>
         </div>
-
         <div class="header-right-actions">
           <nav class="app-nav" aria-label="Main Navigation">
             <button class="nav-tab active" data-tab="weather-tab" id="nav-weather-btn">
@@ -54,7 +51,6 @@
               Assistant Chat
             </button>
           </nav>
-
           <!-- Theme Toggle Switch (Dark / Light Mode) -->
           <button type="button" class="btn btn-outline theme-toggle-btn" id="theme-toggle-btn" title="Toggle Light / Dark Mode">
             <svg class="theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
@@ -64,11 +60,8 @@
         </div>
       </div>
     </header>
-
-
     <!-- MAIN CONTENT WRAPPER -->
     <main class="main-content">
-
       <!-- LOCATION SEARCH SECTION -->
       <section class="search-section">
         <form id="search-form" class="search-form">
@@ -96,7 +89,6 @@
             <span id="alert-toggle-text">Alerts: Enabled</span>
           </button>
         </form>
-
         <!-- Quick Location Chips -->
         <div class="quick-cities">
           <span class="quick-label">Popular:</span>
@@ -107,20 +99,17 @@
           <button type="button" class="city-chip" data-city="London">London</button>
           <button type="button" class="city-chip" data-city="New York">New York</button>
         </div>
-
         <!-- System Demo Mode Banner -->
         <div id="demo-notice" class="demo-notice hidden">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
           <span id="demo-notice-text">Demonstration mode active. Configure OPENWEATHER_API_KEY in .env for live OpenWeather data.</span>
         </div>
-
         <!-- Global Error Container -->
         <div id="error-banner" class="error-banner hidden" role="alert">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
           <span id="error-message">Location not found. Please try another city.</span>
         </div>
       </section>
-
       <!-- WEATHER ALERTS BANNER -->
       <div id="weather-alert-box" class="alert-box hidden">
         <div class="alert-header">
@@ -132,14 +121,10 @@
         </div>
         <p class="alert-desc" id="alert-desc">High temperatures detected. Avoid direct sunlight.</p>
       </div>
-
       <!-- Toast Notification Container -->
       <div id="toast-container" class="toast-container"></div>
-
-
       <!-- TAB 1: CURRENT WEATHER -->
       <div id="weather-tab" class="tab-pane active">
-
         <!-- Hero Weather Card -->
         <section class="hero-card">
           <div class="hero-header">
@@ -157,7 +142,6 @@
               <img id="hero-icon" src="https://openweathermap.org/img/wn/03d@2x.png" alt="Weather condition icon" class="weather-icon-img">
             </div>
           </div>
-
           <div class="hero-main">
             <div class="temp-display">
               <span id="hero-temp" class="hero-temp">33</span><span class="deg-symbol">°C</span>
@@ -173,14 +157,12 @@
             </div>
           </div>
         </section>
-
         <!-- Key Weather Metrics Grid -->
         <section class="section-container">
           <div class="section-title-row">
             <h3 class="section-title">Key Environmental & Solar Metrics</h3>
             <span class="sub-label">OpenWeather Normalizations</span>
           </div>
-
           <div class="metrics-grid">
             
             <div class="metric-card">
@@ -191,7 +173,6 @@
               <div class="metric-value" id="m-humidity">72%</div>
               <div class="metric-desc" id="m-humidity-desc">High moisture levels</div>
             </div>
-
             <div class="metric-card">
               <div class="metric-header">
                 <span class="metric-label">Wind Speed & Dir</span>
@@ -200,7 +181,6 @@
               <div class="metric-value" id="m-wind">14 km/h</div>
               <div class="metric-desc" id="m-wind-desc">Moderate breeze (160°)</div>
             </div>
-
             <div class="metric-card">
               <div class="metric-header">
                 <span class="metric-label">Rain Probability</span>
@@ -209,7 +189,6 @@
               <div class="metric-value" id="m-rain">45%</div>
               <div class="metric-desc" id="m-rain-desc">Scattered showers possible</div>
             </div>
-
             <div class="metric-card">
               <div class="metric-header">
                 <span class="metric-label">Atmospheric Pressure</span>
@@ -218,7 +197,6 @@
               <div class="metric-value" id="m-pressure">1012 hPa</div>
               <div class="metric-desc" id="m-pressure-desc">Standard pressure</div>
             </div>
-
             <div class="metric-card">
               <div class="metric-header">
                 <span class="metric-label">Visibility</span>
@@ -227,7 +205,6 @@
               <div class="metric-value" id="m-visibility">9.5 km</div>
               <div class="metric-desc" id="m-visibility-desc">Good driving visibility</div>
             </div>
-
             <div class="metric-card">
               <div class="metric-header">
                 <span class="metric-label">Cloud Coverage</span>
@@ -236,7 +213,6 @@
               <div class="metric-value" id="m-clouds">45%</div>
               <div class="metric-desc" id="m-clouds-desc">Partly cloudy sky</div>
             </div>
-
             <div class="metric-card">
               <div class="metric-header">
                 <span class="metric-label">Sunrise & Sunset</span>
@@ -245,7 +221,6 @@
               <div class="metric-value" id="m-sun">06:05 / 18:42</div>
               <div class="metric-desc">Daylight duration ~12.6h</div>
             </div>
-
             <div class="metric-card">
               <div class="metric-header">
                 <span class="metric-label">Air Quality (AQI)</span>
@@ -254,10 +229,8 @@
               <div class="metric-value" id="m-aqi">Level 2 (Fair)</div>
               <div class="metric-desc" id="m-aqi-desc">Satisfactory outdoor air</div>
             </div>
-
           </div>
         </section>
-
         <!-- Quick AI Reasoning Banner -->
         <section class="section-container">
           <div class="ai-summary-box">
@@ -273,9 +246,7 @@
             </p>
           </div>
         </section>
-
       </div>
-
       <!-- TAB 2: FORECAST -->
       <div id="forecast-tab" class="tab-pane">
         
@@ -288,7 +259,6 @@
             <!-- Dynamically populated -->
           </div>
         </section>
-
         <section class="section-container" style="margin-top: 2rem;">
           <div class="section-title-row">
             <h3 class="section-title">5-Day Forecast Outlook</h3>
@@ -298,18 +268,14 @@
             <!-- Dynamically populated -->
           </div>
         </section>
-
       </div>
-
       <!-- TAB 3: AI INSIGHTS & ACTIONS -->
       <div id="insights-tab" class="tab-pane">
-
         <section class="section-container">
           <div class="section-title-row">
             <h3 class="section-title">Weather-Based Action Engine</h3>
             <span class="badge badge-ai">AI Deterministic Rules & Reasoning</span>
           </div>
-
           <div class="actions-grid">
             
             <div class="action-card">
@@ -322,7 +288,6 @@
                 <li>Sun protection gear</li>
               </ul>
             </div>
-
             <div class="action-card">
               <div class="action-card-header">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.5 2.8C1.4 11.3 1 12.1 1 13v3c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
@@ -333,7 +298,6 @@
                 <li> commute timing is smooth</li>
               </ul>
             </div>
-
             <div class="action-card">
               <div class="action-card-header">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 4v16"/><path d="M17 4v16"/><path d="M19 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"/></svg>
@@ -343,7 +307,6 @@
                 <li>Favorable for late evening walks</li>
               </ul>
             </div>
-
             <div class="action-card">
               <div class="action-card-header">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
@@ -353,17 +316,14 @@
                 <li>Keep hydrators nearby during afternoon heat</li>
               </ul>
             </div>
-
           </div>
         </section>
-
         <!-- Detailed AI Data Analysis -->
         <section class="section-container" style="margin-top: 2rem;">
           <div class="section-title-row">
             <h3 class="section-title">Deep Natural Language Interpretations</h3>
             <span class="sub-label">Data Transformation Engine</span>
           </div>
-
           <div class="analysis-stack">
             <div class="analysis-box">
               <h5 class="analysis-heading">Temperature & Thermal Comfort</h5>
@@ -383,12 +343,9 @@
             </div>
           </div>
         </section>
-
       </div>
-
       <!-- TAB 4: CHATBOT ASSISTANT -->
       <div id="chat-tab" class="tab-pane">
-
         <section class="chat-container">
           <!-- Chat Header -->
           <div class="chat-header">
@@ -403,7 +360,6 @@
             </div>
             <button type="button" class="btn btn-outline btn-sm" id="clear-chat-btn">Clear History</button>
           </div>
-
           <!-- Chat Messages Area -->
           <div id="chat-messages" class="chat-messages" role="log" aria-live="polite">
             
@@ -418,9 +374,7 @@
                 </div>
               </div>
             </div>
-
           </div>
-
           <!-- Quick Suggestion Buttons Chips (Requirement #17) -->
           <div class="suggestion-chips-wrapper">
             <span class="chips-label">Quick Questions:</span>
@@ -434,7 +388,6 @@
               <button type="button" class="chip-btn" data-question="Give me a detailed weather analysis.">Advanced Analysis</button>
             </div>
           </div>
-
           <!-- Chat Input Bar -->
           <form id="chat-form" class="chat-form">
             <input 
@@ -451,13 +404,9 @@
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
             </button>
           </form>
-
         </section>
-
       </div>
-
     </main>
-
     <!-- FOOTER -->
     <footer class="app-footer">
       <div class="footer-content">
@@ -465,9 +414,7 @@
         <p class="footer-disclaimer">Weather interpretations and recommendations are provided for general planning purposes.</p>
       </div>
     </footer>
-
   </div>
-
   <script src="/js/app.js"></script>
   <script src="/js/chat.js"></script>
 </body>
