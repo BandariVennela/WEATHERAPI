@@ -31,11 +31,11 @@ async function fetchRawWeatherData({ city, lat, lon }) {
     } else if (city) {
       const cleanCity = encodeURIComponent(city.trim());
       currentUrl = `${BASE_URL}/data/2.5/weather?q=${cleanCity}&units=metric&appid=${apiKey}`;
-
       forecastUrl = `${BASE_URL}/data/2.5/forecast?q=${cleanCity}&units=metric&appid=${apiKey}`;
     } else {
       throw new Error('Location query is required (city name or coordinates).');
     }
+
 
     let currentRes = await fetch(currentUrl);
 
