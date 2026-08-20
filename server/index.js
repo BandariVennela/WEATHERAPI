@@ -44,6 +44,3 @@ if (require.main === module) {
 
 // Export Express app for Vercel Serverless Functions & tests
 module.exports = app;
-
-
-
