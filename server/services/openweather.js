@@ -19,8 +19,8 @@ async function fetchRawWeatherData({ city, lat, lon }) {
     return getFallbackWeatherData({ city: city || 'Hyderabad', lat, lon });
   }
 
-
   try {
+
     let currentUrl = '';
     let forecastUrl = '';
     let airPollutionUrl = '';
