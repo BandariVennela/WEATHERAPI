@@ -249,22 +249,35 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ==========================================================================
-     API FETCHING
+     API FETCHING & ROBUST JSON PARSING
      ========================================================================== */
+  async function safeFetchJson(url) {
+    const response = await fetch(url);
+    const contentType = response.headers.get('content-type') || '';
+    
+    let payload;
+    if (contentType.includes('application/json')) {
+      payload = await response.json();
+    } else {
+      const text = await response.text();
+      console.error('Non-JSON API response:', text.slice(0, 200));
+      throw new Error('Unable to parse server response. If deploying on Vercel, please verify serverless routing.');
+    }
+
+    if (!response.ok || payload.error) {
+      throw new Error(payload.message || 'Failed to retrieve weather data.');
+    }
+
+    return payload;
+  }
+
   async function fetchWeatherData(city) {
     hideError();
     setLoadingState(true);
 
     try {
-      const response = await fetch(`/api/weather?city=${encodeURIComponent(city)}`);
-      const payload = await response.json();
-
+      const payload = await safeFetchJson(`/api/weather?city=${encodeURIComponent(city)}`);
       setLoadingState(false);
-
-      if (!response.ok || payload.error) {
-        throw new Error(payload.message || 'Failed to retrieve weather data.');
-      }
-
       processWeatherPayload(payload);
     } catch (err) {
       setLoadingState(false);
@@ -277,21 +290,15 @@ document.addEventListener('DOMContentLoaded', () => {
     setLoadingState(true);
 
     try {
-      const response = await fetch(`/api/weather?lat=${lat}&lon=${lon}`);
-      const payload = await response.json();
-
+      const payload = await safeFetchJson(`/api/weather?lat=${lat}&lon=${lon}`);
       setLoadingState(false);
-
-      if (!response.ok || payload.error) {
-        throw new Error(payload.message || 'Failed to retrieve weather data.');
-      }
-
       processWeatherPayload(payload);
     } catch (err) {
       setLoadingState(false);
       showError(err.message);
     }
   }
+
 
   /* ==========================================================================
      DATA PROCESSING & DOM RENDERING

@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let history = [];
 
   // Expose global callback for location updates
-  window.updateChatContext = function(cityName) {
+  window.updateChatContext = function (cityName) {
     if (chatContextLabel) {
       chatContextLabel.textContent = `Context: Verified OpenWeather Data (${cityName})`;
     }
@@ -94,6 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const payload = await response.json();
       removeMessage(typingId);
+
 
       chatInput.disabled = false;
       chatSubmitBtn.disabled = false;

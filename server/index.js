@@ -28,10 +28,17 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
-// Start Server
-app.listen(PORT, () => {
-  console.log(`===================================================`);
-  console.log(` AI Weather Agent running at: http://localhost:${PORT}`);
-  console.log(` OpenWeather Key Configured: ${process.env.OPENWEATHER_API_KEY ? 'YES' : 'NO (Using demo engine)'}`);
-  console.log(`===================================================`);
-});
+// Start Server (Only when run directly, e.g. node server/index.js)
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`===================================================`);
+    console.log(` AI Weather Agent running at: http://localhost:${PORT}`);
+    console.log(` OpenWeather Key Configured: ${process.env.OPENWEATHER_API_KEY ? 'YES' : 'NO (Using demo engine)'}`);
+    console.log(`===================================================`);
+  });
+}
+
+// Export Express app for Vercel Serverless Functions & tests
+module.exports = app;
+
+
