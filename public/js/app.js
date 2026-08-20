@@ -88,7 +88,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-
   /* ==========================================================================
      ALERT NOTIFICATIONS ENGINE (ENABLE / DISABLE TOGGLE)
      ========================================================================== */
@@ -298,7 +297,6 @@ document.addEventListener('DOMContentLoaded', () => {
       showError(err.message);
     }
   }
-
 
   /* ==========================================================================
      DATA PROCESSING & DOM RENDERING

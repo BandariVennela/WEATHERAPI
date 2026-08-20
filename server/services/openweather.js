@@ -36,7 +36,6 @@ async function fetchRawWeatherData({ city, lat, lon }) {
       throw new Error('Location query is required (city name or coordinates).');
     }
 
-
     let currentRes = await fetch(currentUrl);
 
     // Smart Geocoding Fallback if direct city lookup returned 404
@@ -268,4 +267,3 @@ async function trySmartGeocoding(cityQuery, apiKey) {
 module.exports = {
   fetchRawWeatherData
 };
-

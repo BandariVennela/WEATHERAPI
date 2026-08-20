@@ -95,7 +95,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const payload = await response.json();
       removeMessage(typingId);
 
-
       chatInput.disabled = false;
       chatSubmitBtn.disabled = false;
       chatInput.focus();
