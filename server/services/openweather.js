@@ -12,12 +12,13 @@ const BASE_URL = 'https://api.openweathermap.org';
  * @returns {Promise<Object>} Raw OpenWeather payloads
  */
 async function fetchRawWeatherData({ city, lat, lon }) {
-  const apiKey = process.env.OPENWEATHER_API_KEY;
+  const apiKey = (process.env.OPENWEATHER_API_KEY && process.env.OPENWEATHER_API_KEY.trim()) || '78d18aaaba3f3987cda842f8ded78c7a';
 
   if (!apiKey || apiKey.trim() === '' || apiKey === 'your_openweather_api_key_here') {
     console.log('[OpenWeather Service] No valid OPENWEATHER_API_KEY found in .env. Using realistic fallback engine.');
     return getFallbackWeatherData({ city: city || 'Hyderabad', lat, lon });
   }
+
 
   try {
     let currentUrl = '';
