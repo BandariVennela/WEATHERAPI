@@ -30,15 +30,20 @@ app.get('*', (req, res) => {
 
 // Start Server (Only when run directly, e.g. node server/index.js)
 if (require.main === module) {
+  const hasOpenWeatherKey = Boolean(process.env.OPENWEATHER_API_KEY && process.env.OPENWEATHER_API_KEY.trim());
+  const hasGeminiKey = Boolean(process.env.GEMINI_API_KEY && process.env.GEMINI_API_KEY.trim());
+
   app.listen(PORT, () => {
     console.log(`===================================================`);
     console.log(` AI Weather Agent running at: http://localhost:${PORT}`);
-    console.log(` OpenWeather Key Configured: ${process.env.OPENWEATHER_API_KEY ? 'YES' : 'NO (Using demo engine)'}`);
+    console.log(` OpenWeather API Key Configured: ${hasOpenWeatherKey ? 'YES' : 'NO (Using demo engine)'}`);
+    console.log(` Gemini LLM API Key Configured: ${hasGeminiKey ? 'YES' : 'NO (Using heuristic engine)'}`);
     console.log(`===================================================`);
   });
 }
 
 // Export Express app for Vercel Serverless Functions & tests
 module.exports = app;
+
 
 
